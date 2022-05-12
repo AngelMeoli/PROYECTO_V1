@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Mascotas</title>
+</head>
+<body>
+    {%include "barra.html"%}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Sexo</td>
+                <td>Edad</td>
+                <td>Fecha_Rescate</td>
+                <td>Persona</td>
+                <td>Vacuna</td>
+                <td>Acciones</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if mascotas %}
+            {% for mascota in mascotas %}
+            <tr>
+                <td>{{mascota.id}}</td>
+                <td>{{mascota.nombre_mascota}}</td>
+                <td>{{mascota.sexo}}</td>
+                <td>{{mascota.edad_aproximada}}</td>
+                <td>{{mascota.fecha_rescate}}</td>
+                <td>{{mascota.persona}}</td>
+                <td>{{mascota.vacuna}}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'mascotas4:mascota_editar' mascota.id %}">Editar</a>
+                
+                    <a class="btn btn-danger" href="{% url 'mascotas4:mascota_eliminar' mascota.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+            {% else %}
+            <h1>NO hay mascotas registradas</h1>
+
+            {% endif %}
+        </tbody>
+
+    </table>
+</body>
+</html>

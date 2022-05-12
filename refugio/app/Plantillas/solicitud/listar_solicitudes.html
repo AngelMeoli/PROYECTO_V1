@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Solicitudes</title>
+</head>
+<body>
+    {%include "barra.html"%}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Apellido</td>
+                <td>Edad</td>
+                <td>Correo</td>
+                <td>Telefono</td>
+                <td>Domicilio</td>
+                <td>Cantidad</td>
+                <td>Motivo</td>
+                <td>Acciones</td>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if solicitudes %}
+            {% for solicitud in solicitudes %}
+            <tr>
+                <td>{{solicitud.id}}</td>
+                <td>{{solicitud.nombre}}</td>
+                <td>{{solicitud.apellido}}</td>
+                <td>{{solicitud.edad}}</td>
+                <td>{{solicitud.correo}}</td>
+                <td>{{solicitud.telefono}}</td>
+                <td>{{solicitud.domicilio}}</td>
+                <td>{{solicitud.numero_mascotas}}</td>
+                <td>{{solicitud.motivo_solicitud}}</td>
+                <td>
+                    <a class="btn btn-primary" href="{% url 'mascotas4:solicitud_editar' solicitud.id %}">Editar</a>
+                
+                    <a class="btn btn-danger" href="{% url 'mascotas4:solicitud_eliminar' solicitud.id %}">Eliminar</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+            {% else %}
+            <h1>NO hay mascotas registradas</h1>
+
+            {% endif %}
+        </tbody>
+
+    </table>
+</body>
+</html>

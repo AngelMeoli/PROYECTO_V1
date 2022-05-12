@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Formulario de registro de mascotas</title>
+<head\>    
+
+
+<body>
+{%include "barra.html"%}
+<h1>Formulario para adopción de mascotas</h1><br>
+
+<form method="post" action="" >
+  {% csrf_token %}
+
+  {{form.as_p}}
+
+
+  <button class="btn btn-primary" type="submit">Enviar</button>
+  <input type="reset" value="Cancelar">
+
+
+
+</form>
+
+
+
+
+</body>
+</html>

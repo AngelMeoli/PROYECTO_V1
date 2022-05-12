@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+<body>
+    {%include "barra.html"%}
+               <div class="col-md-6 offset-md-3">
+                <div class="border p-3 bg-white">
+                <h4>Pagina de registro</h4>
+                 
+                <hr>
+                <form method="post" action="" >
+                    {%csrf_token %}
+                    <table>
+                    {{ form.as_table }}
+            
+                    </table>
+                    <br/>
+                    <br/>
+                    <h6 style="color:red;">Al presionar el bonton Enviar se encendera la camara para hacer </h6>
+                    <h6 style="color:red;" >registro biometrico. Presione Enviar si acepta </h6>
+                    <button class="btn btn-success" type="submit">Enviar</button>
+                </div>
+                </div>
+                </form >
+                
+                
+
+                
+        
+</body>
+</html>
